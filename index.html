@@ -487,6 +487,50 @@
       box-shadow: 0 12px 28px rgba(16, 185, 129, 0.4);
     }
 
+    /* KONTAK ADMIN */
+    .admin-contact {
+      margin-top: 18px;
+      padding: 14px 18px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(212, 175, 55, 0.06));
+      border: 1px dashed var(--border-purple);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .admin-contact i {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    .admin-contact strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .admin-contact .phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      color: var(--success);
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .admin-contact .phone:hover {
+      background: var(--success);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    }
+
     /* FORM */
     .form-card {
       max-width: 580px;
@@ -616,6 +660,7 @@
       .panduan-card { padding: 26px 22px; }
       .section-title .big { font-size: 1.8rem; }
       .btn-primary { font-size: 0.85rem; padding: 14px 32px; }
+      .admin-contact { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -758,6 +803,15 @@
         </div>
 
       </div>
+
+      <!-- KONTAK ADMIN DI HALAMAN PANDUAN -->
+      <div class="admin-contact" style="max-width: 580px; margin: 40px auto 0; justify-content: center;">
+        <i class="fas fa-headset"></i>
+        <span>Jika masih bingung, hubungi admin kami</span>
+        <a href="https://wa.me/6285782195122" target="_blank" class="phone">
+          <i class="fab fa-whatsapp"></i> 085782195122
+        </a>
+      </div>
     </div>
 
     <!-- DAFTAR -->
@@ -793,6 +847,15 @@
         <button class="btn-primary" id="btnDaftar" style="width: 100%;">
           <i class="fas fa-paper-plane"></i> KIRIM PENDAFTARAN
         </button>
+
+        <!-- KONTAK ADMIN DI HALAMAN DAFTAR -->
+        <div class="admin-contact" style="margin-top: 22px;">
+          <i class="fas fa-headset"></i>
+          <span>Jika masih bingung hubungi admin kami</span>
+          <a href="https://wa.me/6285782195122" target="_blank" class="phone">
+            <i class="fab fa-whatsapp"></i> 085782195122
+          </a>
+        </div>
       </div>
     </div>
 
@@ -897,4 +960,4 @@
   </script>
 
 </body>
-  </html>
+                                                                           </html>
