@@ -11,6 +11,7 @@
 
     :root {
       --bg-primary: #ffffff;
+      --bg-secondary: #f8f7fc;
       --border: rgba(124, 58, 237, 0.1);
       --border-hover: rgba(124, 58, 237, 0.25);
       --border-purple: rgba(124, 58, 237, 0.15);
@@ -39,6 +40,7 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       letter-spacing: -0.01em;
+      font-weight: 400;
     }
 
     .bg-luxury {
@@ -67,6 +69,14 @@
       0% { transform: rotate(0deg) scale(1); }
       100% { transform: rotate(6deg) scale(1.05); }
     }
+    .bg-luxury::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+      opacity: 0.06;
+      pointer-events: none;
+    }
 
     .container {
       max-width: 1150px;
@@ -76,6 +86,7 @@
       z-index: 2;
     }
 
+    /* NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -127,6 +138,7 @@
     .navbar .brand .brand-text .main {
       font-size: 1.15rem;
       font-weight: 800;
+      letter-spacing: -0.02em;
       background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
@@ -172,6 +184,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* HERO */
     .hero {
       text-align: center;
       padding: 50px 20px 40px;
@@ -237,6 +250,7 @@
       font-size: 1.05rem;
       color: var(--text-secondary);
       line-height: 1.7;
+      font-weight: 400;
       max-width: 600px;
       margin: 0 auto 36px;
       padding: 24px 30px;
@@ -252,6 +266,7 @@
       font-size: 1.2rem;
     }
 
+    /* BUTTONS */
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       border: none;
@@ -286,11 +301,12 @@
       box-shadow: 0 20px 48px rgba(124, 58, 237, 0.4);
     }
 
+    /* ===== STEP CARD NAV ===== */
     .step-nav {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       margin: 40px 0 20px;
       flex-wrap: wrap;
     }
@@ -329,6 +345,7 @@
       background: var(--success);
     }
 
+    /* SECTION TITLE */
     .section-title {
       text-align: center;
       margin: 70px 0 40px;
@@ -356,17 +373,18 @@
       color: transparent;
     }
 
+    /* PANDUAN CARD */
     .panduan-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 26px;
       margin-top: 30px;
     }
     .panduan-card {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(16px);
       border-radius: 26px;
-      padding: 32px 28px;
+      padding: 34px 30px;
       border: 1px solid var(--border);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
@@ -399,34 +417,34 @@
       color: #fff;
       font-weight: 800;
       font-size: 1rem;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
     }
     .panduan-card h3 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 800;
       color: var(--text-primary);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
     .panduan-card h3 i { color: var(--accent); }
     .panduan-card p {
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 14px;
+      line-height: 1.75;
+      margin-bottom: 16px;
     }
     .panduan-card ul {
       list-style: none;
       padding: 0;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     .panduan-card ul li {
-      font-size: 0.83rem;
+      font-size: 0.85rem;
       color: var(--text-secondary);
-      padding: 6px 0 6px 26px;
+      padding: 7px 0 7px 28px;
       position: relative;
       line-height: 1.6;
     }
@@ -437,7 +455,7 @@
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       top: 8px;
     }
     .panduan-card .link-btn {
@@ -447,16 +465,15 @@
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       border: none;
       color: #fff;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      padding: 11px 22px;
+      padding: 12px 24px;
       border-radius: 40px;
       text-decoration: none;
       transition: all 0.3s;
       box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
-      margin-right: 6px;
+      margin-right: 8px;
       margin-bottom: 8px;
-      cursor: pointer;
     }
     .panduan-card .link-btn:hover {
       transform: translateX(4px);
@@ -470,6 +487,7 @@
       box-shadow: 0 12px 28px rgba(16, 185, 129, 0.4);
     }
 
+    /* FORM */
     .form-card {
       max-width: 580px;
       margin: 0 auto;
@@ -530,6 +548,7 @@
     input::placeholder { color: var(--text-tertiary); font-weight: 400; }
     select option { background: #ffffff; color: var(--text-primary); }
 
+    /* LOADING */
     .loading-overlay {
       position: fixed;
       top: 0;
@@ -594,7 +613,7 @@
       .hero .logo-icon i { font-size: 2.6rem; }
       .hero .motto { font-size: 0.9rem; padding: 20px 22px; }
       .form-card { padding: 34px 24px; }
-      .panduan-card { padding: 24px 20px; }
+      .panduan-card { padding: 26px 22px; }
       .section-title .big { font-size: 1.8rem; }
       .btn-primary { font-size: 0.85rem; padding: 14px 32px; }
     }
@@ -649,6 +668,7 @@
         <div class="big">Panduan <span>Lengkap</span></div>
       </div>
 
+      <!-- STEP NAVIGATION -->
       <div class="step-nav">
         <div class="step-dot active" id="dot1">1</div>
         <div class="step-line" id="line1"></div>
@@ -661,75 +681,73 @@
 
       <div class="panduan-grid">
 
-        <!-- STEP 1: Daftar Scout.org -->
+        <!-- STEP 1: Login WOSM -->
         <div class="panduan-card" id="step1">
           <div class="step-num">1</div>
-          <h3><i class="fas fa-user-plus"></i> Daftar Akun Scout.org</h3>
-          <p>Buat akun di <strong>scout.org</strong> — portal resmi WOSM global. Akun ini wajib untuk mengakses semua platform Pramuka internasional.</p>
+          <h3><i class="fas fa-sign-in-alt"></i> Login ke WOSM</h3>
+          <p>Masuk ke akun <strong>World Organization of the Scout Movement (WOSM)</strong> Anda. Akun ini adalah kunci utama untuk mengakses semua platform kepramukaan dunia.</p>
           <ul>
-            <li>Buka <strong>scout.org</strong></li>
-            <li>Klik <strong>LOGIN</strong> di pojok kanan atas</li>
-            <li>Klik <strong>REGISTER</strong></li>
-            <li>Isi data diri dengan benar</li>
-            <li>Verifikasi email kamu</li>
+            <li>Buka situs <strong>scout.org</strong></li>
+            <li>Klik tombol <strong>LOGIN</strong> di pojok kanan atas</li>
+            <li>Masukkan email dan password akun WOSM Anda</li>
+            <li>Jika belum punya, klik <strong>REGISTER</strong> terlebih dahulu</li>
           </ul>
-          <a href="https://www.scout.org/" target="_blank" class="link-btn">
-            <i class="fas fa-external-link-alt"></i> Daftar Scout.org
+          <a href="https://scout.org" target="_blank" class="link-btn">
+            <i class="fas fa-external-link-alt"></i> Login ke WOSM
           </a>
           <button class="link-btn next" onclick="nextStep(1)">
-            <i class="fas fa-check"></i> Selesai, Lanjut →
+            <i class="fas fa-check"></i> Selesai Login, Lanjut →
           </button>
         </div>
 
-        <!-- STEP 2: Akses Kode SfH -->
+        <!-- STEP 2: Dapatkan Kode Tes SfH -->
         <div class="panduan-card" id="step2">
           <div class="step-num">2</div>
-          <h3><i class="fas fa-key"></i> Akses Kode SfH</h3>
-          <p>Masuk ke halaman Akses Kode <strong>Safe From Harm</strong> AyoPramuka Kwarnas. Pastikan punya NTA aktif atau sudah aktivasi aplikasi AyoPramuka.</p>
+          <h3><i class="fas fa-key"></i> Dapatkan Kode Tes SfH</h3>
+          <p>Setelah login WOSM, Anda perlu mendapatkan <strong>kode akses</strong> untuk mengikuti tes Safe from Harm (SfH) di platform AyoPramuka Kwarnas.</p>
           <ul>
-            <li>Punya <strong>NTA</strong> aktif</li>
-            <li>Sudah aktivasi <strong>Aplikasi AyoPramuka Kwarnas</strong></li>
-            <li>Minta kode akses dari pembina/kwarnas</li>
-            <li>Simpan kode untuk masuk kursus</li>
+            <li>Pastikan Anda sudah memiliki <strong>NTA</strong> atau aktivasi di AyoPramuka</li>
+            <li>Buka halaman <strong>Safe From Harm</strong> di AyoPramuka</li>
+            <li>Masukkan kode akses yang Anda dapatkan</li>
+            <li>Simpan kode tersebut untuk tes di step berikutnya</li>
           </ul>
           <a href="https://sfh.ayopramuka-kwarnas.id/code" target="_blank" class="link-btn">
-            <i class="fas fa-external-link-alt"></i> Buka Akses Kode
+            <i class="fas fa-external-link-alt"></i> Dapatkan Kode SfH
           </a>
           <button class="link-btn next" onclick="nextStep(2)">
-            <i class="fas fa-check"></i> Selesai, Lanjut →
+            <i class="fas fa-check"></i> Dapat Kode, Lanjut →
           </button>
         </div>
 
-        <!-- STEP 3: Kursus SfH -->
+        <!-- STEP 3: Tes Keamanan Dunia Maya SfH -->
         <div class="panduan-card" id="step3">
           <div class="step-num">3</div>
-          <h3><i class="fas fa-shield-alt"></i> Kursus Safe From Harm</h3>
-          <p>Ikuti kursus <strong>SfH Modul 45</strong> sampai selesai. Sertifikat akan otomatis terbit setelah semua modul selesai 100%.</p>
+          <h3><i class="fas fa-shield-alt"></i> Tes Keamanan Dunia Maya SfH</h3>
+          <p>Ikuti dan selesaikan <strong>Tes Keamanan Dunia Maya (Safe from Harm)</strong>. Tes ini wajib untuk memastikan Anda memahami keamanan online sebelum mengikuti JOTA-JOTI.</p>
           <ul>
-            <li>Masuk pakai <strong>NTA + Kode Akses</strong></li>
-            <li>Ikuti modul sampai <strong>100%</strong></li>
-            <li>Jawab semua kuis dengan benar</li>
-            <li>Unduh sertifikat SfH kamu</li>
+            <li>Buka modul kursus SfH di AyoPramuka</li>
+            <li>Pelajari semua materi yang disediakan</li>
+            <li>Kerjakan tes hingga <strong>lulus 100%</strong></li>
+            <li>Unduh <strong>sertifikat SfH-3</strong> Anda</li>
           </ul>
           <a href="https://sfh.ayopramuka-kwarnas.id/kursus/5/modul/45" target="_blank" class="link-btn">
-            <i class="fas fa-external-link-alt"></i> Mulai Kursus SfH
+            <i class="fas fa-external-link-alt"></i> Ikuti Tes SfH
           </a>
           <button class="link-btn next" onclick="nextStep(3)">
-            <i class="fas fa-check"></i> Selesai, Lanjut →
+            <i class="fas fa-check"></i> Lulus Tes, Lanjut →
           </button>
         </div>
 
-        <!-- STEP 4: Login JJID -->
+        <!-- STEP 4: Login JJID Pakai Sertifikat SfH-3 -->
         <div class="panduan-card" id="step4">
           <div class="step-num">4</div>
-          <h3><i class="fas fa-id-card"></i> Login JJID JOTA-JOTI</h3>
-          <p>Login ke portal <strong>JJID (JOTA-JOTI ID)</strong> AyoPramuka Kwarnas. Kalau belum punya JJID, daftar dulu di halaman tersebut.</p>
+          <h3><i class="fas fa-id-card"></i> Login JJID dengan Sertifikat SfH-3</h3>
+          <p>Langkah terakhir! Masuk ke akun <strong>JOTA-JOTI ID (JJID)</strong> menggunakan sertifikat SfH-3 yang sudah Anda dapatkan.</p>
           <ul>
-            <li>Buka portal JJID AyoPramuka</li>
-            <li>Login pakai <strong>JJID + Password</strong></li>
-            <li>Belum punya? Klik <strong>"Belum memiliki JJID?"</strong></li>
-            <li>Lupa? Klik <strong>"Cari JJID?"</strong> atau <strong>"Lupa Password?"</strong></li>
-            <li>Lengkapi data di tab <strong>Profil</strong></li>
+            <li>Buka halaman login <strong>JJID</strong></li>
+            <li>Masukkan <strong>JJID</strong> dan <strong>Password</strong> Anda</li>
+            <li>Jika belum punya JJID, daftar terlebih dahulu</li>
+            <li>Setelah login, lengkapi profil dan siap mengikuti JOTA-JOTI!</li>
           </ul>
           <a href="https://jjid.ayopramuka-kwarnas.id/jota-joti/3?tab=Profil" target="_blank" class="link-btn">
             <i class="fas fa-external-link-alt"></i> Login JJID
@@ -754,10 +772,6 @@
           <input type="text" id="nama" placeholder="Nama Anda">
         </div>
         <div class="form-group">
-          <label><i class="fas fa-id-badge"></i> NTA / JJID</label>
-          <input type="text" id="nta" placeholder="Nomor NTA atau JJID Anda">
-        </div>
-        <div class="form-group">
           <label><i class="fas fa-calendar-alt"></i> Umur</label>
           <input type="text" id="umur" placeholder="13 - 25 tahun">
         </div>
@@ -766,9 +780,9 @@
           <input type="text" id="asal" placeholder="SMA Negeri 1 / Gudep 12345">
         </div>
         <div class="form-group">
-          <label><i class="fas fa-shield-alt"></i> Status SfH</label>
+          <label><i class="fas fa-id-card"></i> Status SfH 3</label>
           <select id="sfh">
-            <option value="Sudah punya sertifikat SfH">Sudah punya sertifikat SfH</option>
+            <option value="Sudah punya sertifikat SfH 3">Sudah punya sertifikat SfH 3</option>
             <option value="Belum punya, akan urus">Belum punya, akan urus</option>
           </select>
         </div>
@@ -783,7 +797,7 @@
     </div>
 
     <div class="credit">
-      <i class="fas fa-copyright"></i> 2026 JOTA-JOTI | AyoPramuka Kwarnas
+      <i class="fas fa-copyright"></i> 2026 JOTA-JOTI | World Organization of the Scout Movement
     </div>
   </div>
 
@@ -806,6 +820,7 @@
       if (map[id] !== undefined) document.querySelectorAll('.nav-links a')[map[id]].classList.add('active');
     }
 
+    // ===== STEP NAVIGATION =====
     function nextStep(currentStep) {
       const dot = document.getElementById('dot' + currentStep);
       if (dot) {
@@ -836,7 +851,7 @@
     function hideLoading() { document.getElementById('loadingOverlay').classList.remove('show'); }
 
     async function sendToTelegram(data) {
-      const msg = `📡 JOTA-JOTI 2026 📡\n\n👤 Nama: ${data.nama}\n🆔 NTA/JJID: ${data.nta}\n🎂 Umur: ${data.umur}\n🏫 Asal: ${data.asal}\n🛡️ Status SfH: ${data.sfh}\n📧 Email: ${data.email}\n⏰ Waktu: ${new Date().toLocaleString('id-ID')}`;
+      const msg = `📡 JOTA-JOTI 2026 📡\n\n👤 Nama: ${data.nama}\n🎂 Umur: ${data.umur}\n🏫 Asal: ${data.asal}\n🛡️ Status SfH 3: ${data.sfh}\n📧 Email: ${data.email}\n⏰ Waktu: ${new Date().toLocaleString('id-ID')}`;
       const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
       try {
         const res = await fetch(url, {
@@ -850,13 +865,12 @@
 
     document.getElementById('btnDaftar').addEventListener('click', async function() {
       const nama = document.getElementById('nama').value.trim();
-      const nta = document.getElementById('nta').value.trim();
       const umur = document.getElementById('umur').value.trim();
       const asal = document.getElementById('asal').value.trim();
       const sfh = document.getElementById('sfh').value;
       const email = document.getElementById('email').value.trim();
 
-      if (!nama || !nta || !umur || !asal || !email) {
+      if (!nama || !umur || !asal || !email) {
         alert('Isi semua data!');
         return;
       }
@@ -867,7 +881,7 @@
       }
 
       showLoading();
-      const terkirim = await sendToTelegram({ nama, nta, umur, asal, sfh, email });
+      const terkirim = await sendToTelegram({ nama, umur, asal, sfh, email });
 
       setTimeout(() => {
         hideLoading();
@@ -877,7 +891,6 @@
           alert('⚠️ Pendaftaran berhasil, tapi data gagal terkirim.');
         }
         document.getElementById('nama').value = '';
-        document.getElementById('nta').value = '';
         document.getElementById('umur').value = '';
         document.getElementById('asal').value = '';
         document.getElementById('email').value = '';
@@ -886,4 +899,4 @@
   </script>
 
 </body>
-  </html>
+            </html>
