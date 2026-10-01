@@ -886,17 +886,15 @@
       setTimeout(() => {
         hideLoading();
         if (terkirim) {
-          alert('✅ Pendaftaran berhasil! Data terkirim ke admin.');
+          alert('✅ Pendaftaran berhasil! Anda akan diarahkan ke halaman login JJID.');
+          // Redirect ke halaman login JJID
+          window.location.href = "https://jjid.ayopramuka-kwarnas.id/jota-joti/3";
         } else {
-          alert('⚠️ Pendaftaran berhasil, tapi data gagal terkirim.');
+          alert('⚠️ Pendaftaran berhasil, tapi data gagal terkirim. Silakan coba lagi.');
         }
-        document.getElementById('nama').value = '';
-        document.getElementById('umur').value = '';
-        document.getElementById('asal').value = '';
-        document.getElementById('email').value = '';
       }, 1500);
     });
   </script>
 
 </body>
-            </html>
+  </html>
